@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Maintenance Call Log</string>
+    <string name="btnAFCS">AFCS</string>
+    <string name="btnDBCS">DB/C/DIOSS</string>
+    <string name="btnAFSM">AFSM</string>
+    <string name="btnAPBS">APBS</string>
+    <string name="btnSSM">SSM</string>
+    <string name="btnOthers">OTHERS</string>
+    <string name="DBCS1">DBCS 01</string>
+    <string name="DBCS2">DBCS 02</string>
+    <string name="DBCS5">DBCS 05</string>
+    <string name="DBCS9">DBCS 09</string>
+    <string name="DBCS10">DBCS 10</string>
+    <string name="DBCS12">DBCS 12</string>
+    <string name="DBCS13">DBCS 13</string>
+    <string name="DBCS17">DBCS 17</string>
+    <string name="DBCS18">DBCS 18</string>
+    <string name="DBCS19">DBCS 19</string>
+    <string name="DBCS20">DBCS 20</string>
+    <string name="CIOSS2">CIOSS 2</string>
+    <string name="DIOSS15">DIOSS 15</string>
+    <string name="DIOSS16">DIOSS 16</string>
+    <string name="btnCancel">CANCEL</string>
+    <string name="buttonMisc1">1</string>
+    <string name="buttonMisc2">2</string>
+    <string name="buttonMisc3">3</string>
+    <string name="buttonMisc4">OTHERS</string>
+    <string name="aboutFragmentLabel">About Maintenance Call Log
+                                        Version: 1.0.0
+                                        Device</string>
+</resources>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EquipIdFragment">
+
+        <ScrollView
+            android:id="@+id/scrollViewMach"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/buttonMPECancel"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+            app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonDIOSS15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DIOSS15"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDIOSS16"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonDIOSS16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DIOSS16"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS1"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDIOSS15" />
+
+                <Button
+                    android:id="@+id/buttonDBCS1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS1"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS2"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDIOSS16" />
+
+                <Button
+                    android:id="@+id/buttonDBCS2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS2"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS5"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS1" />
+
+                <Button
+                    android:id="@+id/buttonDBCS5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS5"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS9"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS2" />
+
+                <Button
+                    android:id="@+id/buttonDBCS9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS9"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS10"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS5" />
+
+                <Button
+                    android:id="@+id/buttonDBCS10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS10"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS12"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS9"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/buttonDBCS12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS12"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS13"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS10" />
+
+                <Button
+                    android:id="@+id/buttonDBCS13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS13"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS17"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS12" />
+
+                <Button
+                    android:id="@+id/buttonDBCS17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS17"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS18"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS13" />
+
+                <Button
+                    android:id="@+id/buttonDBCS18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS18"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS19"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS17" />
+
+                <Button
+                    android:id="@+id/buttonDBCS19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS19"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS20"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS18" />
+
+                <Button
+                    android:id="@+id/buttonDBCS20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/DBCS20"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonCIOSS2"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS19" />
+
+                <Button
+                    android:id="@+id/buttonCIOSS2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/CIOSS2"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS20" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/buttonMPECancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="@string/btnCancel"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+            app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+            app:layout_constraintTop_toBottomOf="@+id/scrollViewMach" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineMachV1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineMachV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
