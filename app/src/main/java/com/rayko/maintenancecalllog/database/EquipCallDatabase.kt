@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
+// exportSchema=true to save old versions
 @Database(entities = [EquipCall::class], version = 1, exportSchema = true)
 abstract class EquipCallDatabase : RoomDatabase() {
 

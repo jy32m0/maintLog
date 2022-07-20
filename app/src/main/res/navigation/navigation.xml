@@ -32,6 +32,9 @@
             app:destination="@id/equipmentFragment"
             app:popUpTo="@id/equipIdFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_equipIdFragment_to_logFragment"
+            app:destination="@id/logFragment" />
     </fragment>
     <fragment
         android:id="@+id/miscEquipIdFragment"
@@ -42,10 +45,22 @@
             android:id="@+id/action_miscEquipIdFragment_to_equipmentFragment"
             app:destination="@id/equipmentFragment"
             app:popUpTo="@id/equipIdFragment" />
+        <action
+            android:id="@+id/action_miscEquipIdFragment_to_logFragment"
+            app:destination="@id/logFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.rayko.maintenancecalllog.AboutFragment"
         android:label="@string/aboutFragmentLabel"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/logFragment"
+        android:name="com.rayko.maintenancecalllog.LogFragment"
+        android:label="fragment_log"
+        tools:layout="@layout/fragment_log" >
+        <action
+            android:id="@+id/action_logFragment_to_equipmentFragment"
+            app:destination="@id/equipmentFragment" />
+    </fragment>
 </navigation>

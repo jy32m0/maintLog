@@ -25,7 +25,11 @@
     <string name="buttonMisc2">2</string>
     <string name="buttonMisc3">3</string>
     <string name="buttonMisc4">OTHERS</string>
+    <string name="buttonModule">MODULE</string>
+    <string name="buttonSymptom">SYMPTM</string>
+    <string name="buttonDone">DONE</string>
     <string name="aboutFragmentLabel">About Maintenance Call Log
                                         Version: 1.0.0
                                         Device</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
