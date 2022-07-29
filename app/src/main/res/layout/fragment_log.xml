@@ -2,11 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="logViewModel"
+            type="com.rayko.maintenancecalllog.log.LogViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LogFragment">
+        tools:context=".log.LogFragment">
 
         <ScrollView
             android:id="@+id/logScroll"
@@ -16,51 +22,42 @@
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSymptom">
+            app:layout_constraintTop_toBottomOf="@id/btnDetail">
 
             <TextView
                 android:id="@+id/logText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hello_blank_fragment" />
+                android:text="@{logViewModel.logResult}" />
+<!--                android:text="@string/logResult" />-->
         </ScrollView>
 
         <Button
-            android:id="@+id/btnModule"
+            android:id="@+id/btnDetail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/buttonModule"
-            app:layout_constraintEnd_toEndOf="@id/logGuide2"
-            app:layout_constraintStart_toStartOf="@id/logGuide1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnSymptom"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/buttonSymptom"
+            android:text="@string/buttonDetail"
             app:layout_constraintEnd_toEndOf="@id/logGuide4"
             app:layout_constraintStart_toStartOf="@id/logGuide3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnLogDone"
+            android:id="@+id/btnStop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="@string/buttonDone"
+            android:text="@string/buttonStop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/logGuide1"
             app:layout_constraintEnd_toEndOf="@id/logGuide2"/>
 
         <Button
-            android:id="@+id/btnLogCancel"
+            android:id="@+id/btnLogExit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="@string/btnCancel"
+            android:text="@string/buttonExit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/logGuide3"
             app:layout_constraintEnd_toEndOf="@id/logGuide4" />

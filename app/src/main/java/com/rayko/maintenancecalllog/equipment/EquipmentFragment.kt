@@ -1,15 +1,22 @@
-package com.rayko.maintenancecalllog
+package com.rayko.maintenancecalllog.equipment
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.rayko.maintenancecalllog.AboutFragment
+import com.rayko.maintenancecalllog.R
 import com.rayko.maintenancecalllog.databinding.FragmentEquipmentBinding
+import com.rayko.maintenancecalllog.log.LogViewModel
 
 
 class EquipmentFragment : Fragment() {
@@ -26,7 +33,7 @@ class EquipmentFragment : Fragment() {
 
         // Reference to the viewModel (never construct)
         Log.i("EquipmentFragment", "viewModelProvider is referenced.")
-        viewModel = ViewModelProviders.of(this).get(EquipmentViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(EquipmentViewModel::class.java)
 
         binding.btnDBCS.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_equipmentFragment_to_equipIdFragment)
@@ -65,10 +72,27 @@ class EquipmentFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController())
-                || super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.menuViewRecords -> viewRecords()
+            R.id.menuClearAllRecords -> clearAllRecords()
+            R.id.menuAbout -> openAbout()
+            else -> Toast.makeText(activity,"Selected item is not available. Try again.", Toast.LENGTH_SHORT)
+        }
+        return true
     }
 
+
+    private fun viewRecords() {
+        findNavController().navigate(R.id.action_equipmentFragment_to_logFragment)
+    }
+
+    private fun clearAllRecords() {
+        findNavController().navigate(R.id.action_equipmentFragment_to_logFragment)
+    }
+
+    private fun openAbout() {
+        findNavController().navigate(R.id.action_equipmentFragment_to_aboutFragment)
+    }
     //    override fun onActivityCreated(savedInstanceState: Bundle?) {
 //        super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProvider(this).get(EquipmentViewModel::class.java)

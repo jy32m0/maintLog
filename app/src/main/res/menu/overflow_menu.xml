@@ -2,6 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/aboutFragment"
-        android:title="menu item title" />
+        android:id="@+id/menuViewRecords"
+        android:title="View All Records" />
+
+    <item
+        android:id="@+id/menuClearAllRecords"
+        android:title="! CLEAR All Records" />
+
+    <item
+        android:id="@+id/menuAbout"
+        android:title="About" />
+
 </menu>

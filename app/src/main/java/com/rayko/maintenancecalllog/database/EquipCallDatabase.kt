@@ -33,6 +33,9 @@ abstract class EquipCallDatabase : RoomDatabase() {
                     )
                         .fallbackToDestructiveMigration() //start up fresh instead of migration
                         .build()
+
+                    // INSTANCE to newly created database
+                    INSTANCE = instance
                 }
 
                 return instance

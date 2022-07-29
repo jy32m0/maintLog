@@ -1,4 +1,4 @@
-package com.rayko.maintenancecalllog
+package com.rayko.maintenancecalllog.equipment
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
