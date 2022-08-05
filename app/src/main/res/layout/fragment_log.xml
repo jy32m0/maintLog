@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/buttonDetail"
+            android:enabled="@{logViewModel.btnDetailVisible}"
             app:layout_constraintEnd_toEndOf="@id/logGuide4"
             app:layout_constraintStart_toStartOf="@id/logGuide3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="@string/buttonStop"
+            android:enabled="@{logViewModel.btnStopVisible}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/logGuide1"
             app:layout_constraintEnd_toEndOf="@id/logGuide2"/>

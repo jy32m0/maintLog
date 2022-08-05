@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:text="@string/btnAFCS"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnDBCS"
+            app:layout_constraintBottom_toTopOf="@id/btnDBCS"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
@@ -26,11 +26,11 @@
             android:layout_height="wrap_content"
             android:text="@string/btnDBCS"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnAFSM"
+            app:layout_constraintBottom_toTopOf="@id/btnAFSM"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@+id/btnAFCS" />
+            app:layout_constraintTop_toBottomOf="@id/btnAFCS" />
 
         <Button
             android:id="@+id/btnAFSM"
@@ -38,11 +38,11 @@
             android:layout_height="wrap_content"
             android:text="@string/btnAFSM"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnAPBS"
+            app:layout_constraintBottom_toTopOf="@id/btnAPBS"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@+id/btnDBCS" />
+            app:layout_constraintTop_toBottomOf="@id/btnDBCS" />
 
         <Button
             android:id="@+id/btnAPBS"
@@ -50,11 +50,11 @@
             android:layout_height="wrap_content"
             android:text="@string/btnAPBS"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnSSM"
+            app:layout_constraintBottom_toTopOf="@id/btnSSM"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@+id/btnAFSM" />
+            app:layout_constraintTop_toBottomOf="@id/btnAFSM" />
 
         <Button
             android:id="@+id/btnSSM"
@@ -62,11 +62,11 @@
             android:layout_height="wrap_content"
             android:text="@string/btnSSM"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnOthers"
+            app:layout_constraintBottom_toTopOf="@id/btnOthers"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@+id/btnAPBS" />
+            app:layout_constraintTop_toBottomOf="@id/btnAPBS" />
 
         <Button
             android:id="@+id/btnOthers"
@@ -78,7 +78,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-            app:layout_constraintTop_toBottomOf="@+id/btnSSM" />
+            app:layout_constraintTop_toBottomOf="@id/btnSSM" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineLeft"

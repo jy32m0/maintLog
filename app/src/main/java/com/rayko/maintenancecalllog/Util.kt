@@ -1,18 +1,23 @@
 package com.rayko.maintenancecalllog
 
 import android.content.res.Resources
-import android.net.wifi.aware.AwareResources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
-import androidx.core.location.LocationRequestCompat
 import androidx.core.text.HtmlCompat
 import com.rayko.maintenancecalllog.database.EquipCall
+import java.lang.Math.floor
 import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 
 fun formatCalls(calls: List<EquipCall>, resources: Resources): Spanned {
     val sb = StringBuilder()
+    var totalTimeSec: Long
+    var remainder: Long
+    var hours: Int
+    var mins: Int
+    var secs: Int
+
     sb.apply {
         append(resources.getString(R.string.logTitle))
         calls.forEach {
@@ -20,15 +25,21 @@ fun formatCalls(calls: List<EquipCall>, resources: Resources): Spanned {
             append(resources.getString(R.string.start_time))
             append("\t${convertLongToDateString(it.startTimeMilli)}<br>")
             if (it.endTimeMilli != it.startTimeMilli) {
+                // Double to use floor function.
+                val totalTimeSec : Double = (it.endTimeMilli.minus(it.startTimeMilli)) / 1000.0
+                hours = floor(totalTimeSec / 3600).toInt()
+                mins = floor((totalTimeSec % 3660) / 60).toInt()
+                secs = ((totalTimeSec % 3600) % 60).toInt()
+
                 append("<b>End:</b>")
-                append("\t${convertLongToDateString(it.endTimeMilli)}<br>")
-                append("<b>Hours:Minutes:Seconds</b>")
-                // Hours
-                append("\t ${it.endTimeMilli.minus(it.startTimeMilli) / 1000 /60 / 60}")
-                // Minutes
-                append("\t ${it.endTimeMilli.minus(it.startTimeMilli) / 1000 /60}")
-                // Seconds
-                append("\t ${it.endTimeMilli.minus(it.startTimeMilli) / 1000}<br><br>")
+                append("\t ${convertLongToDateString(it.endTimeMilli)}<br>")
+                append("<b>Maint Time: </b>")
+                append("\t $hours")
+                append(" Hour and")
+                append("\t $mins")
+                append(" Minutes<br><br>")
+//                append("\t $secs")
+//                append(" Seconds<br><br>")
             }
         }
     }

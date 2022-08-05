@@ -1,15 +1,22 @@
 package com.rayko.maintenancecalllog
 
+import android.app.Application
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.rayko.maintenancecalllog.database.EquipCallDatabase
+import com.rayko.maintenancecalllog.databinding.FragmentMiscEquipIdBinding
+import com.rayko.maintenancecalllog.log.LogViewModel
+import com.rayko.maintenancecalllog.log.LogViewModelFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -17,43 +24,61 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class MiscEquipIdFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_misc_equip_id, container, false)
+        val binding: FragmentMiscEquipIdBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_misc_equip_id, container, false
+        )
+
+        //vvvvv Use logViewModel... vvvvv
+
+        // throw illegalArgumentException if the value is null
+        val application = requireNotNull(this.activity).application
+        // reference to dataSource via reference to DAO
+        val dataSource = EquipCallDatabase.getInstance(application).equipCallDatabaseDao
+        // create an instance to LogViewModelFactory
+        val viewModelFactory = LogViewModelFactory(dataSource, application)
+        // request ViewModelProvider for an instance of a LogViewModel
+        val logViewModel =
+            ViewModelProvider(this, viewModelFactory).get(LogViewModel::class.java)
+
+        //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        fun buttonToDo(view: View, machID: String) {
+            view.findNavController().navigate(R.id.action_miscEquipIdFragment_to_logFragment)
+            logViewModel.onStartTracking()
+        }
+
+        binding.buttonMisc1.setOnClickListener {
+            Log.i("MiscEquip", "debug: 65 buttonMisc1")
+            buttonToDo(it, "1")
+        }
+
+        binding.buttonMisc2.setOnClickListener {
+            buttonToDo(it, "2")
+        }
+
+        binding.buttonMisc3.setOnClickListener {
+            buttonToDo(it, "3")
+        }
+
+        binding.buttonMisc4.setOnClickListener {
+            buttonToDo(it, "4")
+        }
+
+        binding.buttonMiscCancel.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_miscEquipIdFragment_to_equipmentFragment)
+            logViewModel.pubOnCleared()
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MiscEquipIdFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MiscEquipIdFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

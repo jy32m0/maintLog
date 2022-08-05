@@ -56,7 +56,7 @@
         <action
             android:id="@+id/action_miscEquipIdFragment_to_logFragment"
             app:destination="@id/logFragment"
-            app:popUpTo="@id/equipmentFragment"
+            app:popUpTo="@id/miscEquipIdFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -68,7 +68,7 @@
         android:id="@+id/logFragment"
         android:name="com.rayko.maintenancecalllog.log.LogFragment"
         android:label="Log Record"
-        tools:layout="@layout/fragment_log" >
+        tools:layout="@layout/fragment_log">
         <action
             android:id="@+id/action_logFragment_to_equipmentFragment"
             app:destination="@id/equipmentFragment"

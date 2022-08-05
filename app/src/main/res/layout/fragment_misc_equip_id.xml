@@ -13,9 +13,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/guidelineMachV4"
+            app:layout_constraintEnd_toEndOf="@id/guidelineMachV4"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/guidelineMachV3"
+            app:layout_constraintStart_toStartOf="@id/guidelineMachV3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
@@ -32,10 +32,10 @@
                     android:layout_marginBottom="30dp"
                     android:text="@string/buttonMisc1"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonMisc2"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineMachV4"
+                    app:layout_constraintBottom_toTopOf="@id/buttonMisc2"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineMachV4"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV3"
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV3"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="103dp" />
 
@@ -47,11 +47,11 @@
                     android:layout_marginBottom="30dp"
                     android:text="@string/buttonMisc2"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonMisc3"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineMachV4"
+                    app:layout_constraintBottom_toTopOf="@id/buttonMisc3"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineMachV4"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV3"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonMisc1" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV3"
+                    app:layout_constraintTop_toBottomOf="@id/buttonMisc1" />
 
                 <Button
                     android:id="@+id/buttonMisc3"
@@ -61,11 +61,11 @@
                     android:layout_marginBottom="30dp"
                     android:text="@string/buttonMisc3"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonMisc4"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV4"
+                    app:layout_constraintBottom_toTopOf="@id/buttonMisc4"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV4"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV3"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonMisc2" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV3"
+                    app:layout_constraintTop_toBottomOf="@id/buttonMisc2" />
 
                 <Button
                     android:id="@+id/buttonMisc4"
@@ -75,11 +75,11 @@
                     android:layout_marginBottom="30dp"
                     android:text="@string/buttonMisc4"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonMiscCancel"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineMachV4"
+                    app:layout_constraintBottom_toTopOf="@id/buttonMiscCancel"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineMachV4"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV3"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonMisc3"
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV3"
+                    app:layout_constraintTop_toBottomOf="@id/buttonMisc3"
                     tools:layout_editor_absoluteX="103dp" />
 
                 <Button
@@ -92,10 +92,10 @@
                     android:text="@string/btnCancel"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineMachV4"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineMachV4"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV3"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonMisc4"
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV3"
+                    app:layout_constraintTop_toBottomOf="@id/buttonMisc4"
                     tools:layout_editor_absoluteX="103dp" />
 
             </LinearLayout>

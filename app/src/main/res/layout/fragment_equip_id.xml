@@ -13,8 +13,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/buttonMPECancel"
-            app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
-            app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+            app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
+            app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
@@ -30,10 +30,10 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DIOSS15"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDIOSS16"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDIOSS16"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
@@ -44,11 +44,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DIOSS16"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS1"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS1"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDIOSS15" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDIOSS15" />
 
                 <Button
                     android:id="@+id/buttonDBCS1"
@@ -58,11 +58,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS1"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS2"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS2"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDIOSS16" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDIOSS16" />
 
                 <Button
                     android:id="@+id/buttonDBCS2"
@@ -72,11 +72,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS2"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS5"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS5"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS1" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS1" />
 
                 <Button
                     android:id="@+id/buttonDBCS5"
@@ -86,11 +86,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS5"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS9"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS9"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS2" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS2" />
 
                 <Button
                     android:id="@+id/buttonDBCS9"
@@ -100,11 +100,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS9"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS10"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS10"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS5" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS5" />
 
                 <Button
                     android:id="@+id/buttonDBCS10"
@@ -114,11 +114,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS10"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS12"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS12"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS9"
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS9"
                     tools:ignore="HardcodedText" />
 
                 <Button
@@ -129,11 +129,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS12"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS13"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS13"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS10" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS10" />
 
                 <Button
                     android:id="@+id/buttonDBCS13"
@@ -143,11 +143,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS13"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS17"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS17"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS12" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS12" />
 
                 <Button
                     android:id="@+id/buttonDBCS17"
@@ -157,11 +157,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS17"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS18"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS18"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS13" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS13" />
 
                 <Button
                     android:id="@+id/buttonDBCS18"
@@ -171,11 +171,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS18"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS19"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS19"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS17" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS17" />
 
                 <Button
                     android:id="@+id/buttonDBCS19"
@@ -185,11 +185,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS19"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonDBCS20"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonDBCS20"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS18" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS18" />
 
                 <Button
                     android:id="@+id/buttonDBCS20"
@@ -199,11 +199,11 @@
                     android:layout_marginBottom="10dp"
                     android:text="@string/DBCS20"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonCIOSS2"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintBottom_toTopOf="@id/buttonCIOSS2"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS19" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS19" />
 
                 <Button
                     android:id="@+id/buttonCIOSS2"
@@ -214,10 +214,10 @@
                     android:text="@string/CIOSS2"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonDBCS20" />
+                    app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDBCS20" />
 
 
             </LinearLayout>
@@ -234,9 +234,9 @@
             android:text="@string/btnCancel"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/guidelineMachV2"
-            app:layout_constraintStart_toStartOf="@+id/guidelineMachV1"
-            app:layout_constraintTop_toBottomOf="@+id/scrollViewMach" />
+            app:layout_constraintEnd_toEndOf="@id/guidelineMachV2"
+            app:layout_constraintStart_toStartOf="@id/guidelineMachV1"
+            app:layout_constraintTop_toBottomOf="@id/scrollViewMach" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineMachV1"
