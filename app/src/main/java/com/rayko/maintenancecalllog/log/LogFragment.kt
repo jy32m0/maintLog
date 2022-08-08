@@ -46,6 +46,7 @@ class LogFragment : Fragment() {
             inflater, R.layout.fragment_log, container, false
         )
 
+        //****************** Connect to LogViewModel *********************//
         // throw illegalArgumentException if the value is null
         val application = requireNotNull(this.activity).application
 
@@ -58,6 +59,7 @@ class LogFragment : Fragment() {
         // request ViewModelProvider for an instance of a LogViewModel
         logViewModel =
             ViewModelProvider(this, viewModelFactory).get(LogViewModel::class.java)
+        //****************** *********************** *********************//
 
         binding.logViewModel = logViewModel
 
@@ -66,15 +68,19 @@ class LogFragment : Fragment() {
         // Without this, logResult won't show in logText
         binding.lifecycleOwner = viewLifecycleOwner
 
+        binding.btnDetail.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_logFragment_to_detailFragment)
+        }
+
         binding.btnStop.setOnClickListener { view: View ->
             logViewModel.onStopTracking()
-//            view.findNavController().navigate(R.id.action_logFragment_to_equipmentFragment)
         }
+
+        binding.btnLogExit.setOnClickListener { view: View ->
+            view.findNavController().navigateUp()}
 
         return  binding.root
 
-        // Inflate the layout for this fragment ** but buttons won't click
-//        return inflater.inflate(R.layout.fragment_log, container, false)
     }
 
 }

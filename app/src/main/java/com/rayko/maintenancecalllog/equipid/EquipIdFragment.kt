@@ -42,7 +42,7 @@ class EquipIdFragment : Fragment() {
 
         fun buttonToDo(view: View, machID: String) {
             view.findNavController().navigate(R.id.action_equipIdFragment_to_logFragment)
-            logViewModel.onStartTracking()
+            logViewModel.onStartTracking(machID)
         }
 
         binding.buttonDIOSS15.setOnClickListener {
@@ -102,8 +102,7 @@ class EquipIdFragment : Fragment() {
         }
 
         binding.buttonMPECancel.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_equipIdFragment_to_equipmentFragment)
-            logViewModel.pubOnCleared()
+            view.findNavController().navigateUp()
         }
 
         return binding.root

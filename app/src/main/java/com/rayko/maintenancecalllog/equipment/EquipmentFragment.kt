@@ -24,6 +24,7 @@ import com.rayko.maintenancecalllog.AboutFragment
 import com.rayko.maintenancecalllog.R
 import com.rayko.maintenancecalllog.database.EquipCallDatabase
 import com.rayko.maintenancecalllog.databinding.FragmentEquipmentBinding
+import com.rayko.maintenancecalllog.equipName
 import com.rayko.maintenancecalllog.log.LogViewModel
 import com.rayko.maintenancecalllog.log.LogViewModelFactory
 
@@ -41,25 +42,30 @@ class EquipmentFragment : Fragment(), MenuProvider {
             view.findNavController().navigate(R.id.action_equipmentFragment_to_equipIdFragment)
         }
 
-        binding.btnAFCS.setOnClickListener { view: View ->
+        fun buttonMiscToDo(view: View, btnName: String) {
             view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
+            equipName = btnName     // variable held at util.kt
         }
 
-        binding.btnAFSM.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
+        binding.btnAFCS.setOnClickListener {
+            buttonMiscToDo(it, "AFCS")
         }
 
-        binding.btnAPBS.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
+        binding.btnAFSM.setOnClickListener {
+            buttonMiscToDo(it, "AFSM")
         }
 
-        binding.btnSSM.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
+        binding.btnAPBS.setOnClickListener {
+            buttonMiscToDo(it, "APBS")
+        }
+
+        binding.btnSSM.setOnClickListener {
+            buttonMiscToDo(it, "SSM")
         }
 
         // TO DO something else **************************
-        binding.btnOthers.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
+        binding.btnOthers.setOnClickListener {
+            buttonMiscToDo(it, "AFCS")
         }
 
 //vvvvv Substitute for setHasOptionsMenu which was deprecated. vvvvv

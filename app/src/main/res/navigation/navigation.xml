@@ -23,21 +23,20 @@
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_equipmentFragment_to_logFragment"
-            app:destination="@id/logFragment" />
+            app:destination="@id/logFragment"
+            app:popUpTo="@id/equipmentFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_equipmentFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
+            app:destination="@id/aboutFragment"
+            app:popUpTo="@id/equipmentFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/equipIdFragment"
         android:name="com.rayko.maintenancecalllog.equipid.EquipIdFragment"
         android:label="Equipment ID"
         tools:layout="@layout/fragment_equip_id">
-        <action
-            android:id="@+id/action_equipIdFragment_to_equipmentFragment"
-            app:destination="@id/equipmentFragment"
-            app:popUpTo="@id/equipIdFragment"
-            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_equipIdFragment_to_logFragment"
             app:destination="@id/logFragment"
@@ -49,10 +48,6 @@
         android:name="com.rayko.maintenancecalllog.MiscEquipIdFragment"
         android:label="Equipment ID"
         tools:layout="@layout/fragment_misc_equip_id">
-        <action
-            android:id="@+id/action_miscEquipIdFragment_to_equipmentFragment"
-            app:destination="@id/equipmentFragment"
-            app:popUpTo="@id/miscEquipIdFragment" />
         <action
             android:id="@+id/action_miscEquipIdFragment_to_logFragment"
             app:destination="@id/logFragment"
@@ -70,8 +65,14 @@
         android:label="Log Record"
         tools:layout="@layout/fragment_log">
         <action
-            android:id="@+id/action_logFragment_to_equipmentFragment"
-            app:destination="@id/equipmentFragment"
+            android:id="@+id/action_logFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/logFragment"
             app:popUpToInclusive="false" />
     </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.rayko.maintenancecalllog.log.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

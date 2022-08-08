@@ -2,7 +2,7 @@
 
     <string name="app_name">Maintenance Call Log</string>
 
-<!--    Equipment Fragment-->
+    <!--    Equipment Fragment-->
     <string name="btnAFCS">AFCS</string>
     <string name="btnDBCS">DB/C/DIOSS</string>
     <string name="btnAFSM">AFSM</string>
@@ -10,7 +10,7 @@
     <string name="btnSSM">SSM</string>
     <string name="btnOthers">OTHERS</string>
 
-<!--    Equip ID Fragment-->
+    <!--    Equip ID Fragment-->
     <string name="DBCS1">DBCS 01</string>
     <string name="DBCS2">DBCS 02</string>
     <string name="DBCS5">DBCS 05</string>
@@ -27,29 +27,31 @@
     <string name="DIOSS16">DIOSS 16</string>
     <string name="btnCancel">CANCEL</string>
 
-<!--    Misc Equip ID Fragment-->
+    <!--    Misc Equip ID Fragment-->
     <string name="buttonMisc1">1</string>
     <string name="buttonMisc2">2</string>
     <string name="buttonMisc3">3</string>
     <string name="buttonMisc4">OTHERS</string>
 
-<!--    Log Fragment-->
+    <!--    Log Fragment-->
     <string name="buttonModule">MODULE</string>
     <string name="buttonDetail">Detail</string>
     <string name="buttonStop">STOP</string>
     <string name="buttonExit">EXIT</string>
 
-<!--    text formats-->
+    <!--    text formats-->
     <string name="logTitle"><![CDATA[<h3>Call Data</h3>]]></string>
     <string name="start_time"><![CDATA[<b>Start:</b>]]></string>
     <string name="end_time"><![CDATA[<b>End:</b>]]></string>
     <string name="total_time"><![CDATA[<b>Hours:Minutes:Seconds</b>]]></string>
 
-<!--    Miscellaneous-->
+    <!--    Miscellaneous-->
     <string name="logResult">Log result here</string>
     <string name="aboutFragmentLabel">Maintenance Call Log</string>
     <string name="aboutText">Maintenance Call Log
                                         Version: 1.0.0
                                         Device</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
