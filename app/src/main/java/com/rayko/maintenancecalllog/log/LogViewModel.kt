@@ -20,10 +20,10 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         private val context =
                 getApplication<Application>().applicationContext
 
-        // coroutine 1: create viewModelJob and override onCleared to finish coroutines at the end
+        // cr 1: create viewModelJob and override onCleared to finish coroutines at the end
         private var viewModelJob = Job()
 
-        // coroutine 1: cancel all coroutines when this viewModel is destroyed.
+        // cr 1: cancel all coroutines when this viewModel is destroyed.
         override fun onCleared() {
                 super.onCleared()
                 viewModelJob.cancel()
@@ -35,24 +35,29 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
 
         // cr 3: create live data var and use a coroutine to initialize it from the database
         private var currentCall = MutableLiveData<EquipCall?>()
+        val activeCall = currentCall
 
         // cr 4: get all calls from the database
         private val calls = database.getAllCalls()
+        val allCalls = calls
 
+        // format to display (util.kt)
         val logResult = Transformations.map(calls) { calls ->
                 formatCalls(calls, application.resources)
-
         }
 
         // cr 5: initialize currentCall with a local fun in init block
-        init {
+        init {  Log.i("LogViewModel", "debug: 50 - currentCall before initializeCurrentCall")
                 initializeCurrentCall()
+                Log.i("LogViewModel", "debug: 52 - currentCall has been initialized")
         }
 
         // cr 5: implement the function and launch a coroutine in the uiScope
         private fun initializeCurrentCall() {
                 uiScope.launch {
-                        currentCall.value = currentCallFromDatabase() }
+                        currentCall.value = currentCallFromDatabase()
+                        Log.i("LogViewModel", "debug: 59 - after currentCall null-check - " + currentCall.value)
+                }
         }
 
         // cr 5: Implement the suspend function and return nullable if no currentCall started.
@@ -60,9 +65,11 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         private suspend fun currentCallFromDatabase(): EquipCall? {
                 return withContext(Dispatchers.IO) {
                         var call = database.getLastCall()
+                        Log.i("LogViewModel", "debug: 68 - Before currentCall null-check: " + call?.startTimeMilli + " ~ " + call?.endTimeMilli)
                         if (call?.endTimeMilli != call?.startTimeMilli) {
                                 call = null
-                        }
+                                Log.i("LogViewModel", "debug: 71 - currentCall is null")
+                        } else {Log.i("LogViewModel", "debug: 72 - currentCall is NOT null")}
                         call
                 }
         }
@@ -73,7 +80,7 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         // to create a new EquipCall, insert it to the database, and assign it to currentCall.
         // From this point, it will be time-consuming. So, coroutine will be launched.
         fun onStartTracking(equipModule: String) {
-                // empty, so they won't show in Detail
+                // empty, so they won't show in DETAIL
                 callReason = ""
                 callSolution = ""
 
@@ -89,6 +96,7 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         private suspend fun insert(newCall: EquipCall) {
                 withContext(Dispatchers.IO) {
                         database.insert(newCall)        // DAO method insert
+                        Log.i("LogViewModel", "debug: 99 - new call inserted")
                 }
         }
 
@@ -99,6 +107,7 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
                         existingCall.remedyCall = callSolution
                         update(existingCall)
                         currentCall.value = currentCallFromDatabase()
+                        Log.i("LogViewModel", "debug: 110 - DETAIL Updated in detailTracking")
                 }
         }
 
@@ -108,17 +117,19 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
                         val oldCall = currentCall.value ?: return@launch
                         oldCall.endTimeMilli = System.currentTimeMillis()
                         update(oldCall)
+                        Log.i("LogViewModel", "debug: 120 - stopTracking - " + currentCall.value )
                         currentCall.value = null
                 }
         }
 
-        private suspend fun update(oldCall: EquipCall) { Log.i("LogViewModel", "debug: 1 update: " + currentCall.value)
+        private suspend fun update(oldCall: EquipCall) {
                 withContext(Dispatchers.IO) {
 
                         oldCall.reasonCall = callReason
                         oldCall.remedyCall = callSolution
 
                         database.update(oldCall)
+                        Log.i("LogViewModel", "debug: 132 - update: " + currentCall.value)
                 }
         }
 

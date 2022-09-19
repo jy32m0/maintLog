@@ -46,13 +46,15 @@
     <fragment
         android:id="@+id/miscEquipIdFragment"
         android:name="com.rayko.maintenancecalllog.MiscEquipIdFragment"
-        android:label="Equipment ID"
         tools:layout="@layout/fragment_misc_equip_id">
         <action
             android:id="@+id/action_miscEquipIdFragment_to_logFragment"
             app:destination="@id/logFragment"
             app:popUpTo="@id/miscEquipIdFragment"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="equipType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -69,6 +71,10 @@
             app:destination="@id/detailFragment"
             app:popUpTo="@id/logFragment"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="equipID"
+            app:argType="string"
+            android:defaultValue="null" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

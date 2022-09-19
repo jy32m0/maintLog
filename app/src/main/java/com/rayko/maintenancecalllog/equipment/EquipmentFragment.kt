@@ -39,12 +39,20 @@ class EquipmentFragment : Fragment(), MenuProvider {
         )
 
         binding.btnDBCS.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_equipmentFragment_to_equipIdFragment)
+//            view.findNavController().navigate(R.id.action_equipmentFragment_to_equipIdFragment)
+            view.findNavController()
+                .navigate(EquipmentFragmentDirections.actionEquipmentFragmentToEquipIdFragment())
         }
 
         fun buttonMiscToDo(view: View, btnName: String) {
-            view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
-            equipName = btnName     // variable held at util.kt
+//            Log.i("EquipmentFragment", "debug: 46 - buttonMiscToDo, before navigation")
+//            equipName = btnName     // variable held at util.kt
+
+//            view.findNavController().navigate(R.id.action_equipmentFragment_to_miscEquipIdFragment)
+            view.findNavController().navigate(EquipmentFragmentDirections
+                .actionEquipmentFragmentToMiscEquipIdFragment(btnName))
+//            view.findNavController().currentDestination?.label = equipName    // one tempo too late
+
         }
 
         binding.btnAFCS.setOnClickListener {
@@ -68,22 +76,21 @@ class EquipmentFragment : Fragment(), MenuProvider {
             buttonMiscToDo(it, "AFCS")
         }
 
-//vvvvv Substitute for setHasOptionsMenu which was deprecated. vvvvv
+        // Substitute for setHasOptionsMenu which was deprecated.***** //
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
-
+        // *********************************************************** //
 
         return binding.root
     }
 
-//***** substitute for onCreateOptionsMenu which was deprecated
+    // substitute for onCreateOptionsMenu which was deprecated. ****** //
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.overflow_menu, menu)
     }
+    // *************************************************************** //
 
-//vvvvv Substitute for onOptionsItemSelected which was deprecated. vvvvv
+    // Substitute for onOptionsItemSelected which was deprecated. **** //
     override fun onMenuItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menuViewRecords -> viewRecords()
@@ -94,7 +101,7 @@ class EquipmentFragment : Fragment(), MenuProvider {
         }
         return true
     }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+    // *************************************************************** //
 
     private fun viewRecords() {
         findNavController().navigate(R.id.action_equipmentFragment_to_logFragment)
@@ -104,7 +111,7 @@ class EquipmentFragment : Fragment(), MenuProvider {
         findNavController().navigate(R.id.action_equipmentFragment_to_logFragment)
 
         val result = "clear"
-        setFragmentResult("requestKey", bundleOf("bundleKey" to result))
+        setFragmentResult("clearKey", bundleOf("bundleKey" to result))
     }
 
     private fun openAbout() {

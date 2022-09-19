@@ -11,7 +11,6 @@ import androidx.navigation.findNavController
 import com.rayko.maintenancecalllog.R
 import com.rayko.maintenancecalllog.database.EquipCallDatabase
 import com.rayko.maintenancecalllog.databinding.FragmentEquipIdBinding
-import com.rayko.maintenancecalllog.equipment.EquipmentViewModel
 import com.rayko.maintenancecalllog.log.LogViewModel
 import com.rayko.maintenancecalllog.log.LogViewModelFactory
 
@@ -26,8 +25,7 @@ class EquipIdFragment : Fragment() {
             inflater, R.layout.fragment_equip_id, container, false
         )
 
-        //vvvvv Use logViewModel... vvvvv
-
+        //****************** Connect to LogViewModel *********************//
         // throw illegalArgumentException if the value is null
         val application = requireNotNull(this.activity).application
         // reference to dataSource via reference to DAO
@@ -37,12 +35,13 @@ class EquipIdFragment : Fragment() {
         // request ViewModelProvider for an instance of a LogViewModel
         val logViewModel =
             ViewModelProvider(this, viewModelFactory).get(LogViewModel::class.java)
+        //****************** *********************** *********************//
 
-        //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-        fun buttonToDo(view: View, machID: String) {
-            view.findNavController().navigate(R.id.action_equipIdFragment_to_logFragment)
-            logViewModel.onStartTracking(machID)
+        fun buttonToDo(view: View, equipID: String) {
+//            view.findNavController().navigate(R.id.action_equipIdFragment_to_logFragment)
+            view.findNavController()
+                .navigate(EquipIdFragmentDirections.actionEquipIdFragmentToLogFragment())
+//            logViewModel.onStartTracking(equipID)
         }
 
         binding.buttonDIOSS15.setOnClickListener {

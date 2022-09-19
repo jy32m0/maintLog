@@ -36,9 +36,9 @@ class MiscEquipIdFragment : Fragment() {
         val binding: FragmentMiscEquipIdBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_misc_equip_id, container, false
         )
+        Log.i("MiscEquipIdFragment", "debug: 39 - right after binding in onCreateView")
 
-        //vvvvv Use logViewModel... vvvvv
-
+        //****************** Connect to LogViewModel *********************//
         // throw illegalArgumentException if the value is null
         val application = requireNotNull(this.activity).application
         // reference to dataSource via reference to DAO
@@ -48,13 +48,16 @@ class MiscEquipIdFragment : Fragment() {
         // request ViewModelProvider for an instance of a LogViewModel
         val logViewModel =
             ViewModelProvider(this, viewModelFactory).get(LogViewModel::class.java)
+        //****************** *********************** *********************//
 
-        //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        // argument from EquipmentFragment (equipment type: AFCS, DBCS...)
+        var args = MiscEquipIdFragmentArgs.fromBundle(requireArguments())
 
         fun buttonToDo(view: View, machID: String) {
-            var equipID: String = equipName + machID
-            view.findNavController().navigate(R.id.action_miscEquipIdFragment_to_logFragment)
-            logViewModel.onStartTracking(equipID)
+            var equipID = args.equipType + machID
+            view.findNavController()
+                .navigate(MiscEquipIdFragmentDirections.actionMiscEquipIdFragmentToLogFragment())
+//            logViewModel.onStartTracking(equipID)
         }
 
         binding.buttonMisc1.setOnClickListener {

@@ -1,5 +1,5 @@
-package com.rayko.maintenancecalllog.equipment
-
-class EquipmentViewModelFactory {
-
-}
+//package com.rayko.maintenancecalllog.equipment
+//
+//class EquipmentViewModelFactory {
+//
+//}
