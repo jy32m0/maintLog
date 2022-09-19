@@ -14,6 +14,16 @@
         android:layout_height="match_parent"
         tools:context=".log.LogFragment">
 
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/log_list"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/btnLogExit"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/btnDetail"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+
         <ScrollView
             android:id="@+id/logScroll"
             android:layout_width="match_parent"
@@ -29,7 +39,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{logViewModel.logResult}" />
-<!--                android:text="@string/logResult" />-->
         </ScrollView>
 
         <Button

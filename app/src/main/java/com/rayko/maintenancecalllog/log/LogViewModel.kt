@@ -1,22 +1,17 @@
 package com.rayko.maintenancecalllog.log
 
-import android.app.AlertDialog
 import android.app.Application
-import android.content.Context
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import com.rayko.maintenancecalllog.database.EquipCallDatabaseDao
 import android.util.Log
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
+import com.rayko.maintenancecalllog.callReason
+import com.rayko.maintenancecalllog.callSolution
 import com.rayko.maintenancecalllog.database.EquipCall
 import com.rayko.maintenancecalllog.formatCalls
 import kotlinx.coroutines.*
-import com.rayko.maintenancecalllog.MessageDialog
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 
 class LogViewModel (val database: EquipCallDatabaseDao, application: Application)
@@ -25,18 +20,14 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         private val context =
                 getApplication<Application>().applicationContext
 
-        // coroutine 1: create viewModelJob and override onCleared to finish coroutines at the end
+        // cr 1: create viewModelJob and override onCleared to finish coroutines at the end
         private var viewModelJob = Job()
 
-        // coroutine 1: cancel all coroutines when this viewModel is destroyed.
+        // cr 1: cancel all coroutines when this viewModel is destroyed.
         override fun onCleared() {
                 super.onCleared()
                 viewModelJob.cancel()
-                Log.i("LogViewModel", "debug: 35 onCleared() - Model cleared.")
-        }
-
-        fun pubOnCleared() {
-                onCleared()
+                Log.i("LogViewModel", "debug: 30 - onCleared")
         }
 
         // cr 2: define a scope for the coroutines to run
@@ -44,25 +35,29 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
 
         // cr 3: create live data var and use a coroutine to initialize it from the database
         private var currentCall = MutableLiveData<EquipCall?>()
+        val activeCall = currentCall
 
         // cr 4: get all calls from the database
         private val calls = database.getAllCalls()
+        val allCalls = calls
 
+        // format to display (util.kt)
         val logResult = Transformations.map(calls) { calls ->
                 formatCalls(calls, application.resources)
         }
 
-
         // cr 5: initialize currentCall with a local fun in init block
-        init {
+        init {  Log.i("LogViewModel", "debug: 50 - currentCall before initializeCurrentCall")
                 initializeCurrentCall()
-                Log.i("LogViewModel", "debug: 56 initializeCurrentCall.")
+                Log.i("LogViewModel", "debug: 52 - currentCall has been initialized")
         }
 
         // cr 5: implement the function and launch a coroutine in the uiScope
         private fun initializeCurrentCall() {
                 uiScope.launch {
-                        currentCall.value = currentCallFromDatabase() }
+                        currentCall.value = currentCallFromDatabase()
+                        Log.i("LogViewModel", "debug: 59 - after currentCall null-check - " + currentCall.value)
+                }
         }
 
         // cr 5: Implement the suspend function and return nullable if no currentCall started.
@@ -70,9 +65,11 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         private suspend fun currentCallFromDatabase(): EquipCall? {
                 return withContext(Dispatchers.IO) {
                         var call = database.getLastCall()
+                        Log.i("LogViewModel", "debug: 68 - Before currentCall null-check: " + call?.startTimeMilli + " ~ " + call?.endTimeMilli)
                         if (call?.endTimeMilli != call?.startTimeMilli) {
                                 call = null
-                        }
+                                Log.i("LogViewModel", "debug: 71 - currentCall is null")
+                        } else {Log.i("LogViewModel", "debug: 72 - currentCall is NOT null")}
                         call
                 }
         }
@@ -82,20 +79,36 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         // cr 6: Implement click handler function
         // to create a new EquipCall, insert it to the database, and assign it to currentCall.
         // From this point, it will be time-consuming. So, coroutine will be launched.
-        fun onStartTracking() {
+        fun onStartTracking(equipModule: String) {
+                // empty, so they won't show in DETAIL
+                callReason = ""
+                callSolution = ""
+
                 uiScope.launch {
                         val newCall = EquipCall()
+                        newCall.equipModule = equipModule
                         insert(newCall)         // new suspend fun insert
                         currentCall.value = currentCallFromDatabase()
                 }
-                Log.i("LogViewModel", "debug: 87 onStart: " + currentCall.value)
+
         }
 
         private suspend fun insert(newCall: EquipCall) {
                 withContext(Dispatchers.IO) {
                         database.insert(newCall)        // DAO method insert
+                        Log.i("LogViewModel", "debug: 99 - new call inserted")
                 }
-                Log.i("LogViewModel", "debug: 92 insert()")
+        }
+
+        fun detailTracking() {
+                uiScope.launch {
+                        val existingCall = currentCall.value ?: return@launch
+                        existingCall.reasonCall = callReason
+                        existingCall.remedyCall = callSolution
+                        update(existingCall)
+                        currentCall.value = currentCallFromDatabase()
+                        Log.i("LogViewModel", "debug: 110 - DETAIL Updated in detailTracking")
+                }
         }
 
         // cr 7: Other click handlers - follow the patterns of onStartTracking()
@@ -104,16 +117,20 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
                         val oldCall = currentCall.value ?: return@launch
                         oldCall.endTimeMilli = System.currentTimeMillis()
                         update(oldCall)
+                        Log.i("LogViewModel", "debug: 120 - stopTracking - " + currentCall.value )
                         currentCall.value = null
                 }
-                Log.i("LogViewModel", "debug: 107 onStop")
         }
 
         private suspend fun update(oldCall: EquipCall) {
                 withContext(Dispatchers.IO) {
+
+                        oldCall.reasonCall = callReason
+                        oldCall.remedyCall = callSolution
+
                         database.update(oldCall)
+                        Log.i("LogViewModel", "debug: 132 - update: " + currentCall.value)
                 }
-                Log.i("LogViewModel", "debug: 113 update")
         }
 
         fun onClear() {
@@ -128,19 +145,16 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         suspend fun clear() {
                 withContext(Dispatchers.IO) {
                         database.clear()
-                        Log.i("LogViewModel", "debug: 144 fun clear()")
                 }
         }
 
         // called from fragment_log > buttonDetail
         fun btnDetailVisible() = Transformations.map(currentCall) {
-                Log.i("LogViewModel", "debug: 149 btnDetailVisible")
                 null != it
         }
 
         // called from fragment_log > buttonStop
         fun btnStopVisible() = Transformations.map(currentCall) {
-                Log.i("LogViewModel", "debug: 154 btnStopVisible")
                 null != it
         }
 
