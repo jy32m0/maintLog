@@ -1,17 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs'
+//    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.devtools.ksp' version "1.8.0-1.0.8"
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.rayko.maintenancecalllog"
-        minSdk 19
-        targetSdk 32
+        minSdk 21
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -33,53 +34,55 @@ android {
     dataBinding {
         enabled = true
     }
-//    buildFeatures {
-//        compose true     // Enable Jetpack Compose for this module
-//    }
-//    composeOptions {
-//        kotlinCompilerExtensionVersion "$compose_compiler_version"
-//    }
+    buildFeatures {
+        compose true     // Enable Jetpack Compose for this module
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion "$compose_compiler_version"
+    }
+    namespace 'com.rayko.maintenancecalllog'
 }
 
 dependencies {
-//    implementation platform('androidx.compose:compose-bom:2023.01.00')
-//    // other dependencies
-//    // Compose
-//    implementation "androidx.activity:activity-compose:$activity_compose_version"
-//    implementation "androidx.compose.material:material:material"
-//    implementation "androidx.compose.ui:ui-tooling"
-//    implementation "androidx.compose.ui:ui-tooling-preview"
+    implementation platform('androidx.compose:compose-bom:2023.06.01')
+    // other dependencies
+    // Compose
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
+    implementation "androidx.compose.material:material:material"
+    implementation "androidx.compose.ui:ui-tooling"
+    implementation "androidx.compose.ui:ui-tooling-preview"
 
     implementation 'androidx.activity:activity-ktx:1.5.1'
     implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
+//    implementation 'com.google.android.material:material:1.6.1'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
 
     // support libraries
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // android ktx
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
 
     // ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     // room and Lifecycle
-    // implementation 'androidx.room:room-common:2.4.2'
-    implementation 'androidx.room:room-runtime:2.4.2'
-    kapt 'androidx.room:room-compiler:2.4.2'
+    // implementation "androidx.room:room-common:$version_room"
+    implementation "androidx.room:room-runtime:$version_room"
+//    kapt "androidx.room:room-compiler:$version_room"
+    ksp "androidx.room:room-compiler:$version_room"
 
     // extensions and coroutines support for room
-    implementation 'androidx.room:room-ktx:2.4.2'
+    implementation "androidx.room:room-ktx:$version_room"
 
     // testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

@@ -6,7 +6,9 @@ import com.rayko.maintenancecalllog.database.EquipCallDatabaseDao
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
+//import androidx.lifecycle.Transformations
 import com.rayko.maintenancecalllog.callReason
 import com.rayko.maintenancecalllog.callSolution
 import com.rayko.maintenancecalllog.database.EquipCall
@@ -42,7 +44,7 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         val allCalls = calls
 
         // format to display (util.kt)
-        val logResult = Transformations.map(calls) { calls ->
+        val logResult = calls.map {  calls ->
                 formatCalls(calls, application.resources)
         }
 
@@ -149,12 +151,12 @@ class LogViewModel (val database: EquipCallDatabaseDao, application: Application
         }
 
         // called from fragment_log > buttonDetail
-        fun btnDetailVisible() = Transformations.map(currentCall) {
+        fun btnDetailVisible() = currentCall.map {
                 null != it
         }
 
         // called from fragment_log > buttonStop
-        fun btnStopVisible() = Transformations.map(currentCall) {
+        fun btnStopVisible() = currentCall.map{
                 null != it
         }
 
