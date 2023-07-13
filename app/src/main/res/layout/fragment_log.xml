@@ -32,7 +32,8 @@
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnDetail">
+            app:layout_constraintTop_toBottomOf="@id/btnDetail"
+            app:layout_constraintBottom_toTopOf="@id/btnLogExit">
 
             <TextView
                 android:id="@+id/logText"
@@ -43,9 +44,7 @@
 
         <Button
             android:id="@+id/btnDetail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            style="@style/Button2"
             android:text="@string/buttonDetail"
             android:enabled="@{logViewModel.btnDetailVisible}"
             app:layout_constraintEnd_toEndOf="@id/logGuide4"
@@ -54,9 +53,7 @@
 
         <Button
             android:id="@+id/btnStop"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            style="@style/Button2"
             android:text="@string/buttonStop"
             android:enabled="@{logViewModel.btnStopVisible}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,9 +62,7 @@
 
         <Button
             android:id="@+id/btnLogExit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            style="@style/Button2"
             android:text="@string/buttonExit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/logGuide3"
@@ -75,30 +70,22 @@
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/logGuide1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            style="@style/Guideline1"
             app:layout_constraintGuide_percent=".15" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/logGuide2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            style="@style/Guideline1"
             app:layout_constraintGuide_percent="0.43" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/logGuide3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            style="@style/Guideline1"
             app:layout_constraintGuide_percent=".57" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/logGuide4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            style="@style/Guideline1"
             app:layout_constraintGuide_percent="0.85" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

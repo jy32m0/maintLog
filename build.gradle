@@ -7,6 +7,8 @@ buildscript {
         version_core = '1.8.0'
         version_appcompat = '1.5.0'
         version_activity = '1.5.1'
+        compose_compiler_version = '1.4.0'
+        activity_compose_version = '1.7.2'
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
